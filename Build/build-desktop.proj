@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <BuildPath>$(MsBuildProjectDirectory)</BuildPath>
+    <SolutionsRoot>$(MsBuildProjectDirectory)\..\Solutions</SolutionsRoot>
+    <Configuration>Release</Configuration>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <SolutionsToBuild Include="$(SolutionsRoot)\Endjin.TeamCityDemo.Desktop.sln">
+      <Configuration>Release</Configuration>
+      <Platform>Any CPU</Platform>
+      <OutputDir>$(BuildPath)\..\Drops\Desktop\</OutputDir>
+    </SolutionsToBuild>
+  </ItemGroup>
+
+  <Target Name="Build">
+
+    <MSBuild
+      Projects="%(SolutionsToBuild.Identity)"
+      Properties="Configuration=%(SolutionsToBuild.Configuration);
+                  Platform=%(SolutionsToBuild.Platform);
+                  OutDir=%(SolutionsToBuild.OutputDir);"
+      Targets="$(BuildTarget)">
+    </MSBuild>
+    
+  </Target>
+  
+ </Project>

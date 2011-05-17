@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endjin.TeamCityDemo.Domain", "Common\Endjin.TeamCityDemo.Domain\Endjin.TeamCityDemo.Domain.csproj", "{AE29D631-C195-4346-B48B-493903A4323C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endjin.TeamCityDemo.Contracts", "Common\Endjin.TeamCityDemo.Contracts\Endjin.TeamCityDemo.Contracts.csproj", "{F328FDC3-59D8-40F6-AD00-F36B608477FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endjin.TeamCityDemo.Framework", "Common\Endjin.TeamCityDemo.Framework\Endjin.TeamCityDemo.Framework.csproj", "{02531CF0-1519-4702-8912-1A71E15A99DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endjin.TeamCityDemo.Tasks", "Common\Endjin.TeamCityDemo.Tasks\Endjin.TeamCityDemo.Tasks.csproj", "{22EECBD1-57CD-457F-B70C-E05506B0C698}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE29D631-C195-4346-B48B-493903A4323C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE29D631-C195-4346-B48B-493903A4323C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE29D631-C195-4346-B48B-493903A4323C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE29D631-C195-4346-B48B-493903A4323C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F328FDC3-59D8-40F6-AD00-F36B608477FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F328FDC3-59D8-40F6-AD00-F36B608477FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F328FDC3-59D8-40F6-AD00-F36B608477FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F328FDC3-59D8-40F6-AD00-F36B608477FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02531CF0-1519-4702-8912-1A71E15A99DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02531CF0-1519-4702-8912-1A71E15A99DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02531CF0-1519-4702-8912-1A71E15A99DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02531CF0-1519-4702-8912-1A71E15A99DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22EECBD1-57CD-457F-B70C-E05506B0C698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22EECBD1-57CD-457F-B70C-E05506B0C698}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22EECBD1-57CD-457F-B70C-E05506B0C698}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22EECBD1-57CD-457F-B70C-E05506B0C698}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
