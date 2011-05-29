@@ -1,4 +1,4 @@
-namespace Endjin.TeamCityDemo.Web.Controllers
+﻿namespace Endjin.TeamCityDemo.Web.Controllers
 {
     #region Using Directives
 
@@ -9,7 +9,6 @@ namespace Endjin.TeamCityDemo.Web.Controllers
 
     #endregion
 
-    [HandleError]
     public class HomeController : Controller
     {
         public ActionResult Index()

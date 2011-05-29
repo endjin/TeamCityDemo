@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endjin.TeamCityDemo.Web", "Web\Endjin.TeamCityDemo.Web\Endjin.TeamCityDemo.Web.csproj", "{102B7A10-1DC3-45B3-B526-D0B165CB7597}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endjin.TeamCityDemo.Web", "Web\Endjin.TeamCityDemo.Web\Endjin.TeamCityDemo.Web.csproj", "{554FC8AC-2F44-4D60-80D1-EF6D51694081}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{102B7A10-1DC3-45B3-B526-D0B165CB7597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{102B7A10-1DC3-45B3-B526-D0B165CB7597}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{102B7A10-1DC3-45B3-B526-D0B165CB7597}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{102B7A10-1DC3-45B3-B526-D0B165CB7597}.Release|Any CPU.Build.0 = Release|Any CPU
+		{554FC8AC-2F44-4D60-80D1-EF6D51694081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{554FC8AC-2F44-4D60-80D1-EF6D51694081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{554FC8AC-2F44-4D60-80D1-EF6D51694081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{554FC8AC-2F44-4D60-80D1-EF6D51694081}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

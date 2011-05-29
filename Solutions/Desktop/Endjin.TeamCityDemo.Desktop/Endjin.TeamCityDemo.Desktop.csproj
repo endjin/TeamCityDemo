@@ -57,23 +57,16 @@
     <Reference Include="Endjin.TeamCityDemo.Domain">
       <HintPath>..\..\..\ReferencedAssemblies\TeamCityDemo.Common\Endjin.TeamCityDemo.Domain.dll</HintPath>
     </Reference>
-    <Reference Include="Endjin.TeamCityDemo.Framework">
-      <HintPath>..\..\..\ReferencedAssemblies\TeamCityDemo.Common\Endjin.TeamCityDemo.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="Endjin.TeamCityDemo.Tasks">
       <HintPath>..\..\..\ReferencedAssemblies\TeamCityDemo.Common\Endjin.TeamCityDemo.Tasks.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
