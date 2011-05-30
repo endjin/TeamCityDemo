@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <BuildPath>$(MsBuildProjectDirectory)</BuildPath>
+    <DropsPath>$(BuildPath)\..\Drops\Common</DropsPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackagesPath>$(DropsPath)\Packages</PackagesPath>
+    <NuGetPath>$(MsBuildProjectDirectory)\..\Tools\NuGet\NuGet.exe</NuGetPath>
+    <NuGetServer>http://packages.endjin.com/services</NuGetServer>
+    <NuGetAPIKey>2b6acc65-a613-4436-9941-6ab511313c02</NuGetAPIKey>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <BuildOutput Include="$(DropsPath)\*.*"/>    
+  </ItemGroup>
+
+  <Target Name="Build">
+
+    <Exec WorkingDirectory="$(DropsPath)\Packages"
+          Command="&quot;$(NuGetPath)&quot; push &quot;$(PackagesPath)\Endjin.TeamCityDemo.Common.1.0.nupkg&quot; $(NuGetAPIKey) -source $(NuGetServer)" />
+  
+  </Target>
+ 
+  
+ </Project>
