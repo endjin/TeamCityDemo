@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
+  <Import Project="$(MsBuildProjectDirectory)\Tasks\Microsoft.Sdc.Common.tasks" />
+
   <PropertyGroup>
     <BuildPath>$(MsBuildProjectDirectory)</BuildPath>
     <DropsPath>$(BuildPath)\..\Drops\Common</DropsPath>
@@ -19,10 +21,19 @@
 
   <Target Name="Build">
 
+    <GetAssemblyIdentity AssemblyFiles="$(DropsPath)\Endjin.TeamCityDemo.Contracts.dll">
+      <Output TaskParameter="Assemblies" ItemName="AsmInfo" />
+    </GetAssemblyIdentity>
+    
+    <XmlUpdate
+      Namespace="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"
+      XmlFileName="$(PackagesPath)\Endjin.TeamCityDemo.Common.nuspec"
+      XPath="/package/metadata/version"
+      Value="%(AsmInfo.Version)" />
+
     <Exec WorkingDirectory="$(DropsPath)\Packages"
           Command="&quot;$(NuGetPath)&quot; push &quot;$(PackagesPath)\Endjin.TeamCityDemo.Common.1.0.nupkg&quot; $(NuGetAPIKey) -source $(NuGetServer)" />
   
   </Target>
- 
   
  </Project>
