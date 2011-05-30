@@ -28,7 +28,7 @@
     <XmlUpdate
       Namespace="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"
       XmlFileName="$(PackagesPath)\Endjin.TeamCityDemo.Common.nuspec"
-      XPath="/package/metadata/version"
+      XPath="//package/metadata/version"
       Value="%(AsmInfo.Version)" />
 
     <Exec WorkingDirectory="$(DropsPath)\Packages"
