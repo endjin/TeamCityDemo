@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Endjin.TeamCityDemo.Common</id>
+    <version>1.0</version>
+    <authors>Howard van Rooijen</authors>
+    <owners>Howard van Rooijen</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A sample commons library that we can integrate with.</description>
+  </metadata>
+</package>

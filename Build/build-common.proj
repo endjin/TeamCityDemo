@@ -5,14 +5,21 @@
     <BuildPath>$(MsBuildProjectDirectory)</BuildPath>
     <SolutionsRoot>$(MsBuildProjectDirectory)\..\Solutions</SolutionsRoot>
     <Configuration>Release</Configuration>
+    <NuGetPath>$(MsBuildProjectDirectory)\..\Tools\NuGet\NuGet.exe</NuGetPath>
+    <DropsPath>$(BuildPath)\..\Drops\Common</DropsPath>
+    <PackagesPath>$(DropsPath)\Packages</PackagesPath>
   </PropertyGroup>
 
   <ItemGroup>
     <SolutionsToBuild Include="$(SolutionsRoot)\Endjin.TeamCityDemo.Common.sln">
       <Configuration>Release</Configuration>
       <Platform>Any CPU</Platform>
-      <OutputDir>$(BuildPath)\..\Drops\Common\</OutputDir>
+      <OutputDir>$(DropsPath)\</OutputDir>
     </SolutionsToBuild>
+  </ItemGroup>
+
+  <ItemGroup>
+    <BuildOutput Include="$(DropsPath)\*.*"/>    
   </ItemGroup>
 
   <Target Name="Build">
@@ -24,7 +31,15 @@
                   OutDir=%(SolutionsToBuild.OutputDir);"
       Targets="$(BuildTarget)">
     </MSBuild>
+
+    <Copy SourceFiles="@(BuildOutput)" DestinationFolder="$(PackagesPath)\lib\" />
     
+    <Copy SourceFiles="$(SolutionsRoot)\Endjin.TeamCityDemo.Common.nuspec" DestinationFolder="$(PackagesPath)" />
+
+    <Exec WorkingDirectory="$(DropsPath)\Packages"
+          Command="$(NuGetPath) pack $(PackagesPath)\Endjin.TeamCityDemo.Common.nuspec" />
+  
   </Target>
+ 
   
  </Project>

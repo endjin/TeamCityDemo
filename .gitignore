@@ -15,4 +15,7 @@ _GeneratedProduct.wxi
 *.log
 out/
 drop/
+Drops/
 *.lastpatched
+*.docstates
+*.metaproj
