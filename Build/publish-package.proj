@@ -1,59 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
-  <Import Project="$(MsBuildProjectDirectory)\Tasks\MSBuild.Community.Tasks" />
-  <Import Project="$(MsBuildProjectDirectory)\Tasks\MSBuild.Tasks" />
+<Project DefaultTargets="Package" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
     <BuildPath>$(MsBuildProjectDirectory)</BuildPath>
-    <DropsPath>$(BuildPath)\..\Drops\Common</DropsPath>
-    <SolutionsRoot>$(BuildPath)\..\Solutions</SolutionsRoot>
   </PropertyGroup>
 
+  <Import Project="Targets\BuildFX.Proj" />
+    
   <PropertyGroup>
-    <PackagesPath>$(DropsPath)\Packages</PackagesPath>
-    <NuGetPath>$(MsBuildProjectDirectory)\..\Tools\NuGet\NuGet.exe</NuGetPath>
+    <DropsPath>$(DropsPath)\Common</DropsPath>
     <NuGetServer>http://packages.endjin.com/services</NuGetServer>
     <!--<NuGetServer>http://nugetgallery/services</NuGetServer>-->
     <NuGetAPIKey>2b6acc65-a613-4436-9941-6ab511313c02</NuGetAPIKey>
+    <NuGetSpec>Endjin.TeamCityDemo.Common.nuspec</NuGetSpec>
+    <AssemblyWithVersionNumber>$(DropsPath)\Endjin.TeamCityDemo.Contracts.dll</AssemblyWithVersionNumber>
   </PropertyGroup>
-
-  <ItemGroup>
-    <BuildOutput Include="$(DropsPath)\*.*"/>    
-  </ItemGroup>
-
-  <Target Name="Build">
-
-    <Delete Files="$(PackagesPath)\*.nupkg" />
-    
-    <Copy SourceFiles="@(BuildOutput)" DestinationFolder="$(PackagesPath)\lib\" />
-
-    <Copy SourceFiles="$(SolutionsRoot)\Endjin.TeamCityDemo.Common.nuspec" DestinationFolder="$(PackagesPath)" />
-
-    <GetAssemblyIdentity AssemblyFiles="$(DropsPath)\Endjin.TeamCityDemo.Contracts.dll">
-      <Output TaskParameter="Assemblies" ItemName="AsmInfo" />
-    </GetAssemblyIdentity>
-
-    <InvokeScript ScriptFile="$(MsBuildProjectDirectory)\Scripts\Update-PackageVersion.ps1"
-              Function="Update-PackageVersion"
-              Parameters="-version &quot;%(AsmInfo.Version)&quot;;
-                          -specPath &quot;$(PackagesPath)\Endjin.TeamCityDemo.Common.nuspec&quot;"
-              RequiredOutputParams="ErrorCode;VersionNumber">
-       <Output TaskParameter="WriteOutputResults" ItemName="InvokeScriptResults" />
-    </InvokeScript>
-
-    <Message Text="Error Code: %(InvokeScriptResults.ErrorCode)" Importance="high" />
-
-    <Exec WorkingDirectory="$(DropsPath)\Packages"
-          Command="&quot;$(NuGetPath)&quot; pack &quot;$(PackagesPath)\Endjin.TeamCityDemo.Common.nuspec&quot;" />
-
-    <ItemGroup>
-      <Packages Include="$(PackagesPath)\*.nupkg"/>
-    </ItemGroup>
-    
-    <Exec WorkingDirectory="$(DropsPath)\Packages"
-          Command="&quot;$(NuGetPath)&quot; push &quot;%(Packages.Identity)&quot; $(NuGetAPIKey) -source $(NuGetServer)" />
-  
-  </Target>
   
  </Project>

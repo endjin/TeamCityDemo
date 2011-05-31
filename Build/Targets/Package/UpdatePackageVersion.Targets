@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="UpdatePackageVersion">
+
+    <GetAssemblyIdentity AssemblyFiles="$(AssemblyWithVersionNumber)">
+      <Output TaskParameter="Assemblies" ItemName="AssemblyInfo" />
+    </GetAssemblyIdentity>
+
+    <InvokeScript ScriptFile="$(MsBuildProjectDirectory)\Scripts\Update-PackageVersion.ps1"
+              Function="Update-PackageVersion"
+              Parameters="-version &quot;%(AssemblyInfo.Version)&quot;;
+                          -specPath &quot;$(PackagesPath)\$(NuGetSpec)&quot;"
+              RequiredOutputParams="ErrorCode">
+      <Output TaskParameter="WriteOutputResults" ItemName="InvokeScriptResults" />
+    </InvokeScript>
+
+    <Message Text="Error Code: %(InvokeScriptResults.ErrorCode)" Importance="high" />
+  
+  </Target>
+  
+ </Project>

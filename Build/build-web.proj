@@ -3,28 +3,20 @@
 
   <PropertyGroup>
     <BuildPath>$(MsBuildProjectDirectory)</BuildPath>
-    <SolutionsRoot>$(MsBuildProjectDirectory)\..\Solutions</SolutionsRoot>
-    <Configuration>Release</Configuration>
+  </PropertyGroup>
+
+  <Import Project="Targets\BuildFX.Proj" />
+
+  <PropertyGroup>
+    <DropsPath>$(DropsPath)\Common</DropsPath>
   </PropertyGroup>
 
   <ItemGroup>
     <SolutionsToBuild Include="$(SolutionsRoot)\Endjin.TeamCityDemo.Web.sln">
       <Configuration>Release</Configuration>
       <Platform>Any CPU</Platform>
-      <OutputDir>$(BuildPath)\..\Drops\Web\</OutputDir>
+      <OutputDir>$(DropsPath)\</OutputDir>
     </SolutionsToBuild>
   </ItemGroup>
-
-  <Target Name="Build">
-
-    <MSBuild
-      Projects="%(SolutionsToBuild.Identity)"
-      Properties="Configuration=%(SolutionsToBuild.Configuration);
-                  Platform=%(SolutionsToBuild.Platform);
-                  OutDir=%(SolutionsToBuild.OutputDir);"
-      Targets="$(BuildTarget)">
-    </MSBuild>
-    
-  </Target>
   
  </Project>

@@ -14,6 +14,6 @@ function Update-PackageVersion
 
     $spec.Package.Metadata.Version = $version
     $spec.Save($specPath)
-	
+    
     Write-Output "ErrorCode=0"
 }

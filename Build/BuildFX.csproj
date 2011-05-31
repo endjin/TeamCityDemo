@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CEFAA4F0-A83F-42D7-85E4-BE5DDC157D5C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BuildFX</RootNamespace>
+    <AssemblyName>BuildFX</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="build-common.cmd" />
+    <None Include="build-common.proj" />
+    <None Include="build-desktop.cmd" />
+    <None Include="build-desktop.proj" />
+    <None Include="build-web.cmd" />
+    <None Include="build-web.proj" />
+    <None Include="publish-package.cmd" />
+    <None Include="Targets\Common\Common.Properties" />
+    <None Include="Targets\Common\Global.Imports" />
+    <None Include="Targets\Common\Paths.Properties" />
+    <None Include="Targets\Compile\CompileSolution.Targets" />
+    <None Include="Targets\BuildFX.Proj" />
+    <None Include="Targets\BuildFX.Properties" />
+    <None Include="Targets\BuildFX.Imports" />
+    <None Include="Targets\Compile\Compile.Properties" />
+    <None Include="Targets\Compile\Compile.Targets" />
+    <None Include="Targets\Package\Package.Targets" />
+    <None Include="Targets\Package\Package.Properties" />
+    <None Include="Targets\Package\Paths.Properties" />
+    <None Include="Targets\Package\PublishPackage.Targets" />
+    <None Include="Targets\Package\CreatePackage.Targets" />
+    <None Include="Targets\Package\UpdatePackageVersion.Targets" />
+    <None Include="Targets\Package\PrepareFiles.Targets" />
+    <None Include="Targets\Package\CleanPackageFolders.Targets" />
+    <None Include="publish-package.proj" />
+    <None Include="Scripts\Update-PackageVersion.ps1" />
+    <None Include="Tasks\MSBuild.tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tasks\MsBuild.Tasks.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logs\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

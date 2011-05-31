@@ -3,11 +3,12 @@
 
   <PropertyGroup>
     <BuildPath>$(MsBuildProjectDirectory)</BuildPath>
-    <SolutionsRoot>$(MsBuildProjectDirectory)\..\Solutions</SolutionsRoot>
-    <Configuration>Release</Configuration>
-    <NuGetPath>$(MsBuildProjectDirectory)\..\Tools\NuGet\NuGet.exe</NuGetPath>
-    <DropsPath>$(BuildPath)\..\Drops\Common</DropsPath>
-    <PackagesPath>$(DropsPath)\Packages</PackagesPath>
+  </PropertyGroup>
+  
+  <Import Project="Targets\BuildFX.Proj" />
+
+  <PropertyGroup>
+    <DropsPath>$(DropsPath)\Common</DropsPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,21 +18,5 @@
       <OutputDir>$(DropsPath)\</OutputDir>
     </SolutionsToBuild>
   </ItemGroup>
-
-  <ItemGroup>
-    <BuildOutput Include="$(DropsPath)\*.*"/>    
-  </ItemGroup>
-
-  <Target Name="Build">
-
-    <MSBuild
-      Projects="%(SolutionsToBuild.Identity)"
-      Properties="Configuration=%(SolutionsToBuild.Configuration);
-                  Platform=%(SolutionsToBuild.Platform);
-                  OutDir=%(SolutionsToBuild.OutputDir);"
-      Targets="$(BuildTarget)">
-    </MSBuild>
-  
-  </Target>
   
  </Project>
