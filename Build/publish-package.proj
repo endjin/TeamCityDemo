@@ -7,13 +7,14 @@
   <PropertyGroup>
     <BuildPath>$(MsBuildProjectDirectory)</BuildPath>
     <DropsPath>$(BuildPath)\..\Drops\Common</DropsPath>
+    <SolutionsRoot>$(BuildPath)\..\Solutions</SolutionsRoot>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackagesPath>$(DropsPath)\Packages</PackagesPath>
     <NuGetPath>$(MsBuildProjectDirectory)\..\Tools\NuGet\NuGet.exe</NuGetPath>
-    <!--<NuGetServer>http://packages.endjin.com/services</NuGetServer>-->
-    <NuGetServer>http://nugetgallery/services</NuGetServer>
+    <NuGetServer>http://packages.endjin.com/services</NuGetServer>
+    <!--<NuGetServer>http://nugetgallery/services</NuGetServer>-->
     <NuGetAPIKey>2b6acc65-a613-4436-9941-6ab511313c02</NuGetAPIKey>
   </PropertyGroup>
 
@@ -22,6 +23,12 @@
   </ItemGroup>
 
   <Target Name="Build">
+
+    <Delete Files="$(PackagesPath)\*.nupkg" />
+    
+    <Copy SourceFiles="@(BuildOutput)" DestinationFolder="$(PackagesPath)\lib\" />
+
+    <Copy SourceFiles="$(SolutionsRoot)\Endjin.TeamCityDemo.Common.nuspec" DestinationFolder="$(PackagesPath)" />
 
     <GetAssemblyIdentity AssemblyFiles="$(DropsPath)\Endjin.TeamCityDemo.Contracts.dll">
       <Output TaskParameter="Assemblies" ItemName="AsmInfo" />
@@ -36,9 +43,16 @@
     </InvokeScript>
 
     <Message Text="Error Code: %(InvokeScriptResults.ErrorCode)" Importance="high" />
+
+    <Exec WorkingDirectory="$(DropsPath)\Packages"
+          Command="&quot;$(NuGetPath)&quot; pack &quot;$(PackagesPath)\Endjin.TeamCityDemo.Common.nuspec&quot;" />
+
+    <ItemGroup>
+      <Packages Include="$(PackagesPath)\*.nupkg"/>
+    </ItemGroup>
     
-    <!--<Exec WorkingDirectory="$(DropsPath)\Packages"
-          Command="&quot;$(NuGetPath)&quot; push &quot;$(PackagesPath)\Endjin.TeamCityDemo.Common.1.0.nupkg&quot; $(NuGetAPIKey) -source $(NuGetServer)" />-->
+    <Exec WorkingDirectory="$(DropsPath)\Packages"
+          Command="&quot;$(NuGetPath)&quot; push &quot;%(Packages.Identity)&quot; $(NuGetAPIKey) -source $(NuGetServer)" />
   
   </Target>
   

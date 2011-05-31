@@ -31,15 +31,7 @@
                   OutDir=%(SolutionsToBuild.OutputDir);"
       Targets="$(BuildTarget)">
     </MSBuild>
-
-    <Copy SourceFiles="@(BuildOutput)" DestinationFolder="$(PackagesPath)\lib\" />
-    
-    <Copy SourceFiles="$(SolutionsRoot)\Endjin.TeamCityDemo.Common.nuspec" DestinationFolder="$(PackagesPath)" />
-
-    <Exec WorkingDirectory="$(DropsPath)\Packages"
-          Command="&quot;$(NuGetPath)&quot; pack &quot;$(PackagesPath)\Endjin.TeamCityDemo.Common.nuspec&quot;" />
   
   </Target>
- 
   
  </Project>
