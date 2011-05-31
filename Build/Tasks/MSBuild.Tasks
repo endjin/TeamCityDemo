@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="MsBuild.Tasks.PowerShell.InvokeScript" AssemblyFile="MsBuild.Tasks.dll" />
+  
+  <!--
+  EXAMPLE:
+  
+  <Target Name="AfterBuild">
+    <InvokeScript PowerShellProperties="Import-Module &quot;$(MsBuildProjectDirectory)\..\MSBuild.Tasks.Sample\Modules&quot;%3B" 
+                  ScriptFile="$(MsBuildProjectDirectory)\..\MSBuild.Tasks.Sample\Scripts\Test-Scripts.ps1" 
+                  Function="Echo-VersionNumber" 
+                  Parameters="-parameter1 &quot;HelloWorld&quot;" 
+                  RequiredOutputParams="ErrorCode;VersionNumber">
+      <Output TaskParameter="ExceptionDetails" PropertyName="PSException" />
+      <Output TaskParameter="WriteOutputResults" ItemName="InvokeScriptResults" />
+    </InvokeScript>
+    
+    <Message Text="Version Number: %(InvokeScriptResults.VersionNumber)" Importance="high" />
+    <Message Text="Error Code: %(InvokeScriptResults.ErrorCode)" Importance="high" />
+    
+    <ExecuteT4Template TemplatePath="$(MsBuildProjectDirectory)\..\MSBuild.Tasks.Sample\Templates\T4Sample.tt"
+                       ToolPath="$(MsBuildProjectDirectory)\..\MSBuild.Tasks.Sample\Framework\Build\Tools\t4"
+                       OutputPath="$(MsBuildProjectDirectory)\..\MSBuild.Tasks.Sample\Templates\T4Sample.txt" />
+  </Target>
+  -->
+  
+</Project>
