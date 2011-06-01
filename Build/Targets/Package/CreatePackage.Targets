@@ -4,7 +4,7 @@
   <Target Name="CreatePackage">
 
     <Exec WorkingDirectory="$(PackagesPath)"
-         Command="&quot;$(NuGetPath)&quot; pack &quot;$(PackagesPath)\$(NuGetSpec)&quot;" />
+          Command="&quot;$(NuGetPath)&quot; pack &quot;$(PackagesPath)\$(NuGetSpec)&quot;" />
 
   </Target>
   

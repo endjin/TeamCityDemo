@@ -49,11 +49,15 @@
     <None Include="Targets\Compile\Compile.Targets" />
     <None Include="Targets\Package\Package.Targets" />
     <None Include="Targets\Package\Package.Properties" />
-    <None Include="Targets\Package\Paths.Properties" />
+    <None Include="Targets\Package\Paths.Properties">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Targets\Package\PublishPackage.Targets" />
     <None Include="Targets\Package\CreatePackage.Targets" />
     <None Include="Targets\Package\UpdatePackageVersion.Targets" />
-    <None Include="Targets\Package\PrepareFiles.Targets" />
+    <None Include="Targets\Package\PrepareFiles.Targets">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Targets\Package\CleanPackageFolders.Targets" />
     <None Include="publish-package.proj" />
     <None Include="Scripts\Update-PackageVersion.ps1" />

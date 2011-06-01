@@ -8,7 +8,7 @@
   <Import Project="Targets\BuildFX.Proj" />
 
   <PropertyGroup>
-    <DropsPath>$(DropsPath)\Common</DropsPath>
+    <DropsPath>$(DropsPath)\Desktop</DropsPath>
   </PropertyGroup>
 
   <ItemGroup>
